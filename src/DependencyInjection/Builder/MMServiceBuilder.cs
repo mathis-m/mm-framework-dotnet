@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.OpenApi.Models;
 using MMFramework.AspNetCore.Configuration;
 using MMFramework.DependencyInjection.Configuration;
 using MMFramework.Swashbuckle.Configuration;
+using MMFramework.Swashbuckle.Extensions;
 
 namespace MMFramework.DependencyInjection.Builder
 {
@@ -19,7 +21,15 @@ namespace MMFramework.DependencyInjection.Builder
 
         public IMMServiceBuilder AddSwashbuckleIntegration(string serviceName, string serviceVersion)
         {
+            
             Configuration.SwashbuckleConfiguration = new MMSwashbuckleConfiguration(serviceName, serviceVersion);
+            return this;
+        }
+
+        public IMMServiceBuilder AddSwashbuckleIntegration(string serviceName, string serviceVersion, OpenApiInfo openApiInfo)
+        {
+
+            Configuration.SwashbuckleConfiguration = new MMSwashbuckleConfiguration(serviceName, serviceVersion, openApiInfo);
             return this;
         }
 
@@ -39,6 +49,10 @@ namespace MMFramework.DependencyInjection.Builder
             if (Configuration.SwashbuckleConfiguration is { } swashbuckleConfig)
             {
                 Services.TryAddSingleton(swashbuckleConfig);
+                Services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc(swashbuckleConfig.MajorServiceVersionForUrl(), swashbuckleConfig.OpenApiInfo);
+                });
             }
             return Services;
         }
