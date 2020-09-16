@@ -7,6 +7,7 @@ namespace MMFramework.AspNetCore.Builder
     {
         IApplicationBuilder App { get; set; }
         IMMApplicationBuilder UseServiceInfoForPathBase();
+        IMMApplicationBuilder UseSwagger();
         IApplicationBuilder Build();
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace MMFramework.AspNetCore.Configuration
+﻿using MMFramework.Swashbuckle.Configuration;
+
+namespace MMFramework.AspNetCore.Configuration
 {
-    public interface IMMAspNetCoreConfiguration
+    public interface IMMAspNetCoreConfiguration: IMMServiceInfo
     {
-        string BasePath { get; set; }
+        string BasePath { get; }
     }
 }

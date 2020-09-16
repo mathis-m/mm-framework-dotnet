@@ -1,22 +1,21 @@
-﻿
+﻿using MMFramework.Swashbuckle.Extensions;
+
 namespace MMFramework.AspNetCore.Configuration
 {
     public class MMAspNetCoreConfiguration : IMMAspNetCoreConfiguration
     {
-        public string BasePath { get; set; }
+        public string ServiceName { get; set; }
+        public string ServiceVersion { get; set; }
+        private readonly bool _isDevelopment;
+        public string BasePath => _isDevelopment
+            ? string.Empty
+            : $"{this.ServiceNameForUrl()}/v{this.MajorServiceVersionForUrl()}";
 
         public MMAspNetCoreConfiguration(string serviceName, string serviceVersion, bool isDevelopment)
         {
-            serviceName = serviceName
-                .Trim('/')
-                .ToLower();
-            serviceVersion = serviceVersion
-                .Trim('/')
-                .ToLower()
-                .TrimStart('v');
-            BasePath = isDevelopment
-                ? ""
-                : $"/{serviceName}/v{serviceVersion}";
+            _isDevelopment = isDevelopment;
+            ServiceName = serviceName;
+            ServiceVersion = serviceVersion;
         }
     }
 }
