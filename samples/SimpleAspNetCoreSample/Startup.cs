@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using MMFramework.AspNetCore.Extensions;
 using MMFramework.DependencyInjection.Extensions;
 using MMFramework.Swashbuckle.Extensions;
@@ -28,7 +29,13 @@ namespace SimpleAspNetCoreSample
             const string serviceVersion = "V1.0.0-alpha";
             services
                 .AddMMFramework()
-                    .AddSwaggerIntegration(serviceName, serviceVersion)
+                    .AddSwaggerIntegration(serviceName, serviceVersion, c => c
+                        .UseOpenApiInfo(new OpenApiInfo
+                        {
+                            Description = "Sample App using MM Framework."
+                        })
+                        .SortDeprecatedLast()
+                    )
                     .AddAspNetCoreIntegration(serviceName, serviceVersion, _env.IsDevelopment())
                     .Build()
                 .AddControllers();
