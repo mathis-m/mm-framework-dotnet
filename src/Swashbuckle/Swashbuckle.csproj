@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\abstractions\Swashbuckle.Abstractions\Swashbuckle.Abstractions.csproj" />
     <ProjectReference Include="..\AspNetCore\AspNetCore.csproj" />
     <ProjectReference Include="..\DependencyInjection\DependencyInjection.csproj" />
   </ItemGroup>

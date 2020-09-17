@@ -1,5 +1,4 @@
-﻿using Abstractions;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 
 namespace MMFramework.Swashbuckle.Configuration
 {

@@ -1,5 +1,4 @@
-﻿using Abstractions;
-
+﻿
 namespace MMFramework.AspNetCore.Configuration
 {
     public interface IMMAspNetCoreConfiguration: IMMServiceInfo

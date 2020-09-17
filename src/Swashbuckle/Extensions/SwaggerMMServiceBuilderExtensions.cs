@@ -1,5 +1,4 @@
 ﻿using System;
-using Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using MMFramework.DependencyInjection.Builder;

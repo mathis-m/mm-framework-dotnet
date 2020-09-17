@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Abstractions
+namespace MMFramework
 {
     public static class MMServiceInfoExtensions
     {

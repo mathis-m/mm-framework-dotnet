@@ -1,4 +1,4 @@
-﻿namespace Abstractions
+﻿namespace MMFramework
 {
     public interface IMMServiceInfo
     {

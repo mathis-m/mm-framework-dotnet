@@ -1,6 +1,4 @@
-﻿using Abstractions;
-
-namespace MMFramework.AspNetCore.Configuration
+﻿namespace MMFramework.AspNetCore.Configuration
 {
     public class MMAspNetCoreConfiguration : IMMAspNetCoreConfiguration
     {

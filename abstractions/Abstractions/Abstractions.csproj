@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>MMFramework.Abstractions</AssemblyName>
+    <RootNamespace>MMFramework</RootNamespace>
   </PropertyGroup>
 
 </Project>
