@@ -1,4 +1,4 @@
-﻿namespace MMFramework.Swashbuckle.Configuration
+﻿namespace Abstractions
 {
     public interface IMMServiceInfo
     {
