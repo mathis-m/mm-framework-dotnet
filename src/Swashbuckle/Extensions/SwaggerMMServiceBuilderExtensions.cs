@@ -10,7 +10,7 @@ namespace MMFramework.Swashbuckle.Extensions
 {
     public static class SwaggerMMServiceBuilderExtensions
     {
-        public static IMMServiceBuilder AddSwaggerIntegration(this IMMServiceBuilder builder, string serviceName, string serviceVersion, Action<MMSwashbuckleConfigurationBuilder> setupAction = null)
+        public static IMMServiceBuilder AddSwaggerIntegration(this IMMServiceBuilder builder, string serviceName, string serviceVersion, Action<MMSwashbuckleConfigurationBuilder>? setupAction = null)
         {
             var config = new MMSwashbuckleConfiguration(serviceName, serviceVersion);
             var configurationBuilder = new MMSwashbuckleConfigurationBuilder(config);
