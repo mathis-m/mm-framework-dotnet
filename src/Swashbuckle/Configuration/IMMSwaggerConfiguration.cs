@@ -12,6 +12,5 @@ namespace MMFramework.Swashbuckle.Configuration
         OpenApiInfo OpenApiInfo { get; set; }
         string SwaggerEndpoint { get; }
         string SwaggerEndpointName { get; }
-
     }
 }

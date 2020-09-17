@@ -1,15 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MMFramework.DependencyInjection.Configuration;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MMFramework.DependencyInjection.Builder
 {
     public interface IMMServiceBuilder
     {
         IServiceCollection Services { get; }
-
-        IMMServiceConfiguration Configuration { get; }
-        IMMServiceBuilder AddSwashbuckleIntegration(string serviceName, string serviceVersion);
-        IMMServiceBuilder AddAspNetCoreIntegration(string serviceName, string serviceVersion, bool isDevelopment);
+        public IMMServiceBuilder AddMMServiceSetupAction(Action setupAction);
         IServiceCollection Build();
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MMFramework.AspNetCore.Extensions;
 using MMFramework.DependencyInjection.Extensions;
+using MMFramework.Swashbuckle.Extensions;
 
 namespace SimpleAspNetCoreSample
 {
@@ -27,7 +28,7 @@ namespace SimpleAspNetCoreSample
             const string serviceVersion = "V1.0.0-alpha";
             services
                 .AddMMFramework()
-                    .AddSwashbuckleIntegration(serviceName, serviceVersion)
+                    .AddSwaggerIntegration(serviceName, serviceVersion)
                     .AddAspNetCoreIntegration(serviceName, serviceVersion, _env.IsDevelopment())
                     .Build()
                 .AddControllers();
