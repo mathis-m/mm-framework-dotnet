@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Abstractions;
+using Microsoft.OpenApi.Models;
 using MMFramework.Swashbuckle.Configuration.SortConfiguration;
 using MMFramework.Swashbuckle.Extensions;
 
