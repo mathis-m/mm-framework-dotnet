@@ -1,39 +1,35 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.OpenApi.Models;
 using MMFramework.DependencyInjection.Builder;
 using MMFramework.Swashbuckle.Configuration;
+using MMFramework.Swashbuckle.Filter;
 
 namespace MMFramework.Swashbuckle.Extensions
 {
     public static class SwaggerMMServiceBuilderExtensions
     {
-        public static IMMServiceBuilder AddSwaggerIntegration(this IMMServiceBuilder builder, string serviceName, string serviceVersion)
+        public static IMMServiceBuilder AddSwaggerIntegration(this IMMServiceBuilder builder, string serviceName, string serviceVersion, Action<MMSwashbuckleConfigurationBuilder> setupAction = null)
         {
             var config = new MMSwashbuckleConfiguration(serviceName, serviceVersion);
-            builder.AddMMServiceSetupAction(() =>
-            {
-                builder.Services.TryAddSingleton<IMMSwashbuckleConfiguration>(config);
-                builder.Services.AddSwaggerGen(c =>
-                {
-                    c.SwaggerDoc(config.MajorServiceVersionForUrl(), config.OpenApiInfo);
-                });
-            });
+            var configurationBuilder = new MMSwashbuckleConfigurationBuilder(config);
+            setupAction?.Invoke(configurationBuilder);
+            SetupSwaggerIntegration(builder, configurationBuilder.Build());
             return builder;
         }
 
-        public static IMMServiceBuilder AddSwaggerIntegration(this IMMServiceBuilder builder, string serviceName, string serviceVersion, OpenApiInfo openApiInfo)
+        private static void SetupSwaggerIntegration(IMMServiceBuilder builder, IMMSwashbuckleConfiguration config)
         {
-            var config = new MMSwashbuckleConfiguration(serviceName, serviceVersion, openApiInfo);
             builder.AddMMServiceSetupAction(() =>
             {
                 builder.Services.TryAddSingleton<IMMSwashbuckleConfiguration>(config);
                 builder.Services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc(config.MajorServiceVersionForUrl(), config.OpenApiInfo);
+                    c.DocumentFilter<SwaggerSortByComplexityFilter>();
                 });
             });
-            return builder;
         }
     }
 }

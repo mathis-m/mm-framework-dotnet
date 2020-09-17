@@ -1,4 +1,4 @@
-﻿using MMFramework.Swashbuckle.Configuration;
+﻿using Abstractions;
 
 namespace MMFramework.AspNetCore.Configuration
 {

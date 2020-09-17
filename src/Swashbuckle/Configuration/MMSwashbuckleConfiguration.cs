@@ -1,6 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Abstractions;
+using Microsoft.OpenApi.Models;
 using MMFramework.Swashbuckle.Configuration.SortConfiguration;
-using MMFramework.Swashbuckle.Extensions;
 
 namespace MMFramework.Swashbuckle.Configuration
 {
@@ -12,17 +12,6 @@ namespace MMFramework.Swashbuckle.Configuration
         public string SwaggerEndpoint => $"/swagger/{this.MajorServiceVersionForUrl()}/swagger.json";
         public string SwaggerEndpointName => this.FullName();
         public IMMSortSwaggerConfiguration SortConfiguration { get; set; }
-
-        public MMSwashbuckleConfiguration(string serviceName, string serviceVersion, OpenApiInfo openApiInfo)
-        {
-            
-            ServiceName = serviceName;
-            ServiceVersion = serviceVersion;
-            SortConfiguration = new MMSortSwaggerConfiguration();
-            openApiInfo.Title ??= ServiceName;
-            openApiInfo.Version ??= this.FullServiceVersionForUrl();
-            OpenApiInfo = openApiInfo;
-        }
 
         public MMSwashbuckleConfiguration(string serviceName, string serviceVersion)
         {

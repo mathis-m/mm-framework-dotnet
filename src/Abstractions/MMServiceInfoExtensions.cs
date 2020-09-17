@@ -1,7 +1,6 @@
 ﻿using System.Linq;
-using MMFramework.Swashbuckle.Configuration;
 
-namespace MMFramework.Swashbuckle.Extensions
+namespace Abstractions
 {
     public static class MMServiceInfoExtensions
     {
