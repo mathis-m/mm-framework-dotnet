@@ -15,9 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\abstractions\AspNetCore.Abstractions\AspNetCore.Abstractions.csproj" />
+    <ProjectReference Include="..\..\abstractions\DependencyInjection.Abstractions\DependencyInjection.Abstractions.csproj" />
     <ProjectReference Include="..\..\abstractions\Swashbuckle.Abstractions\Swashbuckle.Abstractions.csproj" />
-    <ProjectReference Include="..\AspNetCore\AspNetCore.csproj" />
-    <ProjectReference Include="..\DependencyInjection\DependencyInjection.csproj" />
+    <ProjectReference Include="..\MMFramework\MMFramework.csproj" />
   </ItemGroup>
 
 </Project>

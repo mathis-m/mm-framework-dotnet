@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using MMFramework.Swashbuckle.Configuration.SortConfiguration;
+using MMFramework.Extensions;
 
 namespace MMFramework.Swashbuckle.Configuration
 {
