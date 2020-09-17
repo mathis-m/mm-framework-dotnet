@@ -1,7 +1,7 @@
 ﻿
-using Microsoft.AspNetCore.Builder;
 using MMFramework.AspNetCore.Configuration;
 using System;
+using Microsoft.AspNetCore.Builder;
 
 namespace MMFramework.AspNetCore.Builder
 {

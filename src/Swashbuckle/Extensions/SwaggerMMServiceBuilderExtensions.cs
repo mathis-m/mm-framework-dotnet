@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using MMFramework.DependencyInjection.Builder;
+using MMFramework.Extensions;
 using MMFramework.Swashbuckle.Configuration;
 using MMFramework.Swashbuckle.Filter;
 

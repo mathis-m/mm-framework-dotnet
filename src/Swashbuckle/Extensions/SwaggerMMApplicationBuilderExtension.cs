@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using MMFramework.AspNetCore.Builder;
-using MMFramework.Swashbuckle.Configuration;
+﻿using MMFramework.Swashbuckle.Configuration;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using MMFramework.AspNetCore.Builder;
 
 namespace MMFramework.Swashbuckle.Extensions
 {

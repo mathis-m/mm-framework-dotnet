@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using MMFramework.Extensions;
 
 namespace MMFramework.Swashbuckle.Configuration
 {
