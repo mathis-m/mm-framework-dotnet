@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using MMFramework.AspNetCore.Configuration;
 using System;
 using System.Collections.Generic;
+using MMFramework.AspNetCore.Configuration;
 
 namespace MMFramework.AspNetCore.Builder
 {

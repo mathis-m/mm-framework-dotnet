@@ -1,4 +1,6 @@
-﻿namespace MMFramework.AspNetCore.Configuration
+﻿using MMFramework.Extensions;
+
+namespace MMFramework.AspNetCore.Configuration
 {
     public class MMAspNetCoreConfiguration : IMMAspNetCoreConfiguration
     {
