@@ -13,17 +13,6 @@ namespace MMFramework.Swashbuckle.Configuration
         public string SwaggerEndpointName => this.FullName();
         public IMMSortSwaggerConfiguration SortConfiguration { get; set; }
 
-        public MMSwashbuckleConfiguration(string serviceName, string serviceVersion, OpenApiInfo openApiInfo)
-        {
-            
-            ServiceName = serviceName;
-            ServiceVersion = serviceVersion;
-            SortConfiguration = new MMSortSwaggerConfiguration();
-            openApiInfo.Title ??= ServiceName;
-            openApiInfo.Version ??= this.FullServiceVersionForUrl();
-            OpenApiInfo = openApiInfo;
-        }
-
         public MMSwashbuckleConfiguration(string serviceName, string serviceVersion)
         {
 
