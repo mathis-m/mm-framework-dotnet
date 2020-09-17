@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using MMFramework.AspNetCore.Configuration;
 
 namespace MMFramework.AspNetCore.Builder
@@ -9,6 +9,13 @@ namespace MMFramework.AspNetCore.Builder
     public class MMApplicationBuilder : IMMApplicationBuilder
     {
         private readonly List<Action> _setupApplicationBuilderActions;
+
+        public MMApplicationBuilder(IApplicationBuilder app)
+        {
+            App = app;
+            _setupApplicationBuilderActions = new List<Action>();
+        }
+
         public IApplicationBuilder App { get; set; }
         public IServiceProvider ServiceProvider => App.ApplicationServices;
         public IMMAspNetCoreConfiguration AspConfig => ServiceProvider.GetRequiredService<IMMAspNetCoreConfiguration>();
@@ -31,12 +38,6 @@ namespace MMFramework.AspNetCore.Builder
             _setupApplicationBuilderActions
                 .ForEach(setup => setup());
             return App;
-        }
-
-        public MMApplicationBuilder(IApplicationBuilder app)
-        {
-            App = app;
-            _setupApplicationBuilderActions = new List<Action>();
         }
     }
 }

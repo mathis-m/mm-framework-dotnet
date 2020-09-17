@@ -15,15 +15,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleAspNetCoreSample", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{C4C80270-72D2-4755-A50B-36519DE9C835}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swashbuckle.Abstractions", "abstractions\Swashbuckle.Abstractions\Swashbuckle.Abstractions.csproj", "{7FDD7035-BA8F-4B3E-A9C2-2D41513146C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swashbuckle.Abstractions", "abstractions\Swashbuckle.Abstractions\Swashbuckle.Abstractions.csproj", "{7FDD7035-BA8F-4B3E-A9C2-2D41513146C1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstractions", "abstractions\Abstractions\Abstractions.csproj", "{E9612CB5-9BED-412A-A1FE-E2309966BAB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.Abstractions", "abstractions\DependencyInjection.Abstractions\DependencyInjection.Abstractions.csproj", "{B95C2401-3600-4DF3-B094-4A25C601569F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.Abstractions", "abstractions\DependencyInjection.Abstractions\DependencyInjection.Abstractions.csproj", "{B95C2401-3600-4DF3-B094-4A25C601569F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMFramework", "src\MMFramework\MMFramework.csproj", "{5B36B28F-B05D-4F4F-9FDF-CE1376F813D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMFramework", "src\MMFramework\MMFramework.csproj", "{5B36B28F-B05D-4F4F-9FDF-CE1376F813D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.Abstractions", "abstractions\AspNetCore.Abstractions\AspNetCore.Abstractions.csproj", "{F0C1B64E-7B6F-4B4D-9EE5-CD2C50411B1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Abstractions", "abstractions\AspNetCore.Abstractions\AspNetCore.Abstractions.csproj", "{F0C1B64E-7B6F-4B4D-9EE5-CD2C50411B1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29A375CF-0B11-4A70-96C1-DB429E67CF25}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

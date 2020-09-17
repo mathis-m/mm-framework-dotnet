@@ -1,12 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MMFramework.DependencyInjection.Builder
 {
     public class MMServiceBuilder : IMMServiceBuilder
     {
-        public IServiceCollection Services { get; }
         private readonly List<Action> _serviceSetupActions;
 
         public MMServiceBuilder(IServiceCollection services)
@@ -14,6 +13,8 @@ namespace MMFramework.DependencyInjection.Builder
             Services = services;
             _serviceSetupActions = new List<Action>();
         }
+
+        public IServiceCollection Services { get; }
 
         public IMMServiceBuilder AddMMServiceSetupAction(Action setupAction)
         {

@@ -6,7 +6,8 @@ namespace MMFramework.AspNetCore.Extensions
 {
     public static class AspNetCoreMMServiceBuilderExtensions
     {
-        public static IMMServiceBuilder AddAspNetCoreIntegration(this IMMServiceBuilder builder, string serviceName, string serviceVersion, bool isDevelopment)
+        public static IMMServiceBuilder AddAspNetCoreIntegration(this IMMServiceBuilder builder, string serviceName,
+            string serviceVersion, bool isDevelopment)
         {
             var config = new MMAspNetCoreConfiguration(serviceName, serviceVersion, isDevelopment);
             builder.AddMMServiceSetupAction(() =>
