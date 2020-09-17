@@ -21,6 +21,7 @@ namespace SimpleAspNetCoreSample
         }
 
         public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -29,15 +30,15 @@ namespace SimpleAspNetCoreSample
             const string serviceVersion = "V1.0.0-alpha";
             services
                 .AddMMFramework()
-                    .AddSwaggerIntegration(serviceName, serviceVersion, c => c
-                        .UseOpenApiInfo(new OpenApiInfo
-                        {
-                            Description = "Sample App using MM Framework."
-                        })
-                        .SortDeprecatedLast()
-                    )
-                    .AddAspNetCoreIntegration(serviceName, serviceVersion, _env.IsDevelopment())
-                    .Build()
+                .AddSwaggerIntegration(serviceName, serviceVersion, c => c
+                    .UseOpenApiInfo(new OpenApiInfo
+                    {
+                        Description = "Sample App using MM Framework.",
+                    })
+                    .SortDeprecatedLast()
+                )
+                .AddAspNetCoreIntegration(serviceName, serviceVersion, _env.IsDevelopment())
+                .Build()
                 .AddControllers();
         }
 
@@ -51,15 +52,12 @@ namespace SimpleAspNetCoreSample
 
             app
                 .UseMMFramework()
-                    .UseServiceInfoForPathBase()
-                    .UseSwagger()
-                    .Build();
+                .UseServiceInfoForPathBase()
+                .UseSwagger()
+                .Build();
 
             app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

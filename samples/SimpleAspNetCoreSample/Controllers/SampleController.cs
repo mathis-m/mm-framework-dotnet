@@ -1,6 +1,6 @@
 ﻿using System;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,22 +14,16 @@ namespace SimpleAspNetCoreSample.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new[] {"value1", "value2"};
         }
 
         // GET api/<SampleController>/5
         [Obsolete("Deprecated.")]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public string Get(int id) => "value";
 
         [HttpGet("name/{name}")]
-        public string GetByName(string name)
-        {
-            return "GetByName";
-        }
+        public string GetByName(string name) => "GetByName";
 
 
         // POST api/<SampleController>

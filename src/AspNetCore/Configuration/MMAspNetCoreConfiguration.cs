@@ -4,12 +4,7 @@ namespace MMFramework.AspNetCore.Configuration
 {
     public class MMAspNetCoreConfiguration : IMMAspNetCoreConfiguration
     {
-        public string ServiceName { get; set; }
-        public string ServiceVersion { get; set; }
         private readonly bool _isDevelopment;
-        public string BasePath => _isDevelopment
-            ? string.Empty
-            : $"{this.ServiceNameForUrl()}/v{this.MajorServiceVersionForUrl()}";
 
         public MMAspNetCoreConfiguration(string serviceName, string serviceVersion, bool isDevelopment)
         {
@@ -17,5 +12,12 @@ namespace MMFramework.AspNetCore.Configuration
             ServiceName = serviceName;
             ServiceVersion = serviceVersion;
         }
+
+        public string ServiceName { get; set; }
+        public string ServiceVersion { get; set; }
+
+        public string BasePath => _isDevelopment
+            ? string.Empty
+            : $"{this.ServiceNameForUrl()}/v{this.MajorServiceVersionForUrl()}";
     }
 }

@@ -1,7 +1,6 @@
-﻿
-namespace MMFramework.AspNetCore.Configuration
+﻿namespace MMFramework.AspNetCore.Configuration
 {
-    public interface IMMAspNetCoreConfiguration: IMMServiceInfo
+    public interface IMMAspNetCoreConfiguration : IMMServiceInfo
     {
         string BasePath { get; }
     }

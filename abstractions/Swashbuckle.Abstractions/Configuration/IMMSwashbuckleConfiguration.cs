@@ -6,7 +6,7 @@ namespace MMFramework.Swashbuckle.Configuration
     /// <summary>
     ///     MM Framework Swashbuckle configuration
     /// </summary>
-    public interface IMMSwashbuckleConfiguration: IMMServiceInfo
+    public interface IMMSwashbuckleConfiguration : IMMServiceInfo
     {
         IMMSortSwaggerConfiguration SortConfiguration { get; set; }
         OpenApiInfo OpenApiInfo { get; set; }

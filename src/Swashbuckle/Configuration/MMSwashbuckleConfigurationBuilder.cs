@@ -33,9 +33,6 @@ namespace MMFramework.Swashbuckle.Configuration
             return this;
         }
 
-        public IMMSwashbuckleConfiguration Build()
-        {
-            return _configuration;
-        }
+        public IMMSwashbuckleConfiguration Build() => _configuration;
     }
 }

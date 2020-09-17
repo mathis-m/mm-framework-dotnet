@@ -17,7 +17,6 @@ namespace MMFramework.Swashbuckle.Filter
 
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
-
             var paths = swaggerDoc.Paths
                 .OrderBy(e => e.Key); // alphabetic
 
@@ -33,6 +32,7 @@ namespace MMFramework.Swashbuckle.Filter
             {
                 paths = SortOperationsOnlyByComplexity(swaggerDoc);
             }
+
             // sort paths by complexity
             if (byComplexity)
             {
@@ -45,14 +45,16 @@ namespace MMFramework.Swashbuckle.Filter
             swaggerDoc.Paths = newPaths;
         }
 
-        private static IOrderedEnumerable<KeyValuePair<string, OpenApiPathItem>> SortOperationsOnlyByComplexity(OpenApiDocument swaggerDoc)
+        private static IOrderedEnumerable<KeyValuePair<string, OpenApiPathItem>> SortOperationsOnlyByComplexity(
+            OpenApiDocument swaggerDoc)
         {
             return swaggerDoc.Paths
                 .Select(SortDeprecatedOperationsLast)
                 .OrderBy(e => e.Key);
         }
 
-        private static KeyValuePair<string, OpenApiPathItem> SortDeprecatedOperationsLast(KeyValuePair<string, OpenApiPathItem> x)
+        private static KeyValuePair<string, OpenApiPathItem> SortDeprecatedOperationsLast(
+            KeyValuePair<string, OpenApiPathItem> x)
         {
             var ops = new Dictionary<OperationType, OpenApiOperation>();
             x.Value.Operations
@@ -63,7 +65,8 @@ namespace MMFramework.Swashbuckle.Filter
             return x;
         }
 
-        private IOrderedEnumerable<KeyValuePair<string, OpenApiPathItem>> SortOperationsDeprecatedLastThenByComplexity(OpenApiDocument swaggerDoc)
+        private IOrderedEnumerable<KeyValuePair<string, OpenApiPathItem>> SortOperationsDeprecatedLastThenByComplexity(
+            OpenApiDocument swaggerDoc)
         {
             return swaggerDoc.Paths
                 .Select(SortOperationsDeprecatedLastAndOptionalByComplexity)
@@ -71,7 +74,8 @@ namespace MMFramework.Swashbuckle.Filter
                 .ThenBy(e => e.Key);
         }
 
-        private KeyValuePair<string, OpenApiPathItem> SortOperationsDeprecatedLastAndOptionalByComplexity(KeyValuePair<string, OpenApiPathItem> x)
+        private KeyValuePair<string, OpenApiPathItem> SortOperationsDeprecatedLastAndOptionalByComplexity(
+            KeyValuePair<string, OpenApiPathItem> x)
         {
             var ops = new Dictionary<OperationType, OpenApiOperation>();
             var tmpOps = x.Value.Operations.OrderBy(op => op.Value.Deprecated);
