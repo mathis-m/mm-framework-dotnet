@@ -6,6 +6,7 @@ Framework for dotnet core.
 
 | Package Name									| Purpose			|
 | ----------------------------------------------| ----------------- |
+| `MMFramework`									| MMFramework related stuff. |
 | `MMFramework.Abstractions`					| Containing abstractions for MMFramework |
 | `MMFramework.AspNetCore`						| ASP.NET Core instrumentation for MMFramework integration. |
 | `MMFramework.AspNetCore.Abstractions`			| Containing abstractions for MMFramework.AspNetCore |
