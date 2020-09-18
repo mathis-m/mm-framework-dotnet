@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -11,34 +10,25 @@ namespace SimpleAspNetCoreSample
 {
     public class Startup
     {
-        private readonly IHostEnvironment _env;
-
-        public Startup(IHostEnvironment env, IConfiguration configuration)
-        {
-            _env = env;
-
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            const string serviceName = "SimpleAspNetCoreSample";
-            const string serviceVersion = "V1.0.0-alpha";
             services
-                .AddMMFramework()
-                .AddSwaggerIntegration(serviceName, serviceVersion, c => c
+                .AddMMFramework(x => x
+                    .UseName("SimpleAspNetCoreSample")
+                    .UseVersion("V1.0.0-alpha")
+                ).AddSwaggerIntegration(c => c
                     .UseOpenApiInfo(new OpenApiInfo
                     {
                         Description = "Sample App using MM Framework.",
                     })
                     .SortDeprecatedLast()
-                )
-                .AddAspNetCoreIntegration(serviceName, serviceVersion, _env.IsDevelopment())
-                .Build()
+                    .UseSwaggerGen(genOptions => genOptions
+                        .UseInlineDefinitionsForEnums()
+                    )
+                ).AddAspNetCoreIntegration(
+                ).Build()
                 .AddControllers();
         }
 
