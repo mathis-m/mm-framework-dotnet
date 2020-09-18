@@ -15,10 +15,10 @@ namespace SimpleAspNetCoreSample
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddMMFramework(x => x
+                .AddMMFramework(infoBuilder => infoBuilder
                     .UseName("SimpleAspNetCoreSample")
-                    .UseVersion("V1.0.0-alpha")
-                ).AddSwaggerIntegration(c => c
+                    .UseVersion("V1.0.0-alpha"))
+                .AddSwaggerIntegration(swaggerBuilder => swaggerBuilder
                     .UseOpenApiInfo(new OpenApiInfo
                     {
                         Description = "Sample App using MM Framework.",
@@ -26,9 +26,9 @@ namespace SimpleAspNetCoreSample
                     .SortDeprecatedLast()
                     .UseSwaggerGen(genOptions => genOptions
                         .UseInlineDefinitionsForEnums()
-                    )
-                ).AddAspNetCoreIntegration(
-                ).Build()
+                    ))
+                .AddAspNetCoreIntegration()
+                .Build()
                 .AddControllers();
         }
 
