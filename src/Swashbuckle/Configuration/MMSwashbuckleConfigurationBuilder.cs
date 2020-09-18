@@ -1,5 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using System;
+using Microsoft.OpenApi.Models;
 using MMFramework.Extensions;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MMFramework.Swashbuckle.Configuration
 {
@@ -30,6 +32,12 @@ namespace MMFramework.Swashbuckle.Configuration
         public MMSwashbuckleConfigurationBuilder SortThenByComplexity(bool thenByComplexity = true)
         {
             _configuration.SortConfiguration.ThenByComplexity = thenByComplexity;
+            return this;
+        }
+
+        public MMSwashbuckleConfigurationBuilder UseSwaggerGen(Action<SwaggerGenOptions> setupAction)
+        {
+            _configuration.SwaggerGenSetupAction = setupAction;
             return this;
         }
 

@@ -10,10 +10,9 @@ namespace MMFramework.Swashbuckle.Extensions
 {
     public static class SwaggerMMServiceBuilderExtensions
     {
-        public static IMMServiceBuilder AddSwaggerIntegration(this IMMServiceBuilder builder, string serviceName,
-            string serviceVersion, Action<MMSwashbuckleConfigurationBuilder>? setupAction = null)
+        public static IMMServiceBuilder AddSwaggerIntegration(this IMMServiceBuilder builder, Action<MMSwashbuckleConfigurationBuilder>? setupAction = null)
         {
-            var config = new MMSwashbuckleConfiguration(serviceName, serviceVersion);
+            var config = new MMSwashbuckleConfiguration(builder.ServiceInfo.ServiceName, builder.ServiceInfo.ServiceVersion);
             var configurationBuilder = new MMSwashbuckleConfigurationBuilder(config);
             setupAction?.Invoke(configurationBuilder);
             SetupSwaggerIntegration(builder, configurationBuilder.Build());
@@ -29,6 +28,8 @@ namespace MMFramework.Swashbuckle.Extensions
                 {
                     c.SwaggerDoc(config.MajorServiceVersionForUrl(), config.OpenApiInfo);
                     c.DocumentFilter<SwaggerSortByComplexityFilter>();
+
+                    config.SwaggerGenSetupAction(c);
                 });
             });
         }
