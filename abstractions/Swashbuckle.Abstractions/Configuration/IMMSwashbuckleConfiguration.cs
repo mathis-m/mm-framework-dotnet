@@ -1,5 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using System;
+using Microsoft.OpenApi.Models;
 using MMFramework.Swashbuckle.Configuration.SortConfiguration;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MMFramework.Swashbuckle.Configuration
 {
@@ -10,6 +12,7 @@ namespace MMFramework.Swashbuckle.Configuration
     {
         IMMSortSwaggerConfiguration SortConfiguration { get; set; }
         OpenApiInfo OpenApiInfo { get; set; }
+        Action<SwaggerGenOptions> SwaggerGenSetupAction { get; set; }
         string SwaggerEndpoint { get; }
         string SwaggerEndpointName { get; }
     }

@@ -12,8 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference
-      Include="..\..\abstractions\DependencyInjection.Abstractions\DependencyInjection.Abstractions.csproj" />
+    <ProjectReference Include="..\..\abstractions\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\..\abstractions\DependencyInjection.Abstractions\DependencyInjection.Abstractions.csproj" />
+    <ProjectReference Include="..\MMFramework\MMFramework.csproj" />
   </ItemGroup>
 
 </Project>
